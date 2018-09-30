@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	{{ style('css/app') }}
+</head>
+<body>
+	@include('layouts.partials._nav')
+
+	<section class="container">
+		<div class="columns">
+			<div class="column is-3">
+				sidebar
+			</div>
+
+			<div class="column is-9">
+				@!section('content')
+			</div>
+		</div>
+	</section>
+</body>
+</html>
