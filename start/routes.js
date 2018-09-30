@@ -2,7 +2,9 @@
 
 const Route = use('Route')
 
-Route.on('/').render('welcome')
+Route.on('/')
+	.render('welcome')
+	.as('home')
 
 Route.get('/auth/register', 'Auth/RegisterController.index')
 	.as('auth.register')
