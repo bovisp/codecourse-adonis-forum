@@ -4,20 +4,19 @@ const { validateAll } = use('Validator')
 
 const User = use('App/Models/User')
 
-class RegisterController {
+class LoginController {
 	index ({ view }) {
-		return view.render('auth.register')
+		return view.render('auth.login')
 	}
 
 	async store ({ request, response, session, auth }) {
-		const { email, username, password } = request.all()
+		const { email, password } = request.all()
 
 		const rules = {
-			email: 'required|email|unique:users,email',
-			password: 'required|unique:users,username',
-			username: 'required'
+			email: 'required|email',
+			password: 'required'
 		}
-		
+
 		const validation = await validateAll(request.all(), rules)
 
 		if (validation.fails()) {
@@ -27,20 +26,10 @@ class RegisterController {
 			return response.redirect('back')
 		}
 
-		const user = new User()
-
-		user.fill({
-			email,
-			username,
-			password
-		})
-
-		await user.save()
-
 		await auth.attempt(email, password)
 
 		return response.redirect('auth.home')
 	}
 }
 
-module.exports = RegisterController
+module.exports = LoginController
