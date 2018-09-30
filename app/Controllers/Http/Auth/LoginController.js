@@ -28,7 +28,7 @@ class LoginController {
 
 		await auth.attempt(email, password)
 
-		return response.redirect('auth.home')
+		return response.redirect('home')
 	}
 }
 

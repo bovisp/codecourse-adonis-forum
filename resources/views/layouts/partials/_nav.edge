@@ -8,35 +8,43 @@
 			</div>
 
 			<div class="navbar-end">
-				<div class="navbar-item">
-					<form action="" method="POST">
-						<button 
-							class="button is-white"
-							type="submit"
-							href="{{ route('auth.login') }}" 
-						>Logout</button>
-					</form>
-				</div>
 
-				<div class="navbar-item">
-					<div class="field is-grouped">
-						<div class="control">
-							<a href="{{ route('auth.register') }}" class="button">
-								<span>
-									Register
-								</span>
-							</a>
-						</div>
+				@loggedIn
 
-						<div class="control">
-							<a href="{{ route('auth.login') }}" class="button is-info is-outlined">
-								<span>
-									Login
-								</span>
-							</a>
+					<div class="navbar-item">
+						<form action="" method="POST">
+							<button 
+								class="button is-white"
+								type="submit"
+								href="{{ route('auth.login') }}" 
+							>Logout</button>
+						</form>
+					</div>
+
+				@else
+
+					<div class="navbar-item">
+						<div class="field is-grouped">
+							<div class="control">
+								<a href="{{ route('auth.register') }}" class="button">
+									<span>
+										Register
+									</span>
+								</a>
+							</div>
+
+							<div class="control">
+								<a href="{{ route('auth.login') }}" class="button is-info is-outlined">
+									<span>
+										Login
+									</span>
+								</a>
+							</div>
 						</div>
 					</div>
-				</div>
+
+				@endloggedIn
+				
 			</div>
 		</div>
 	</div>
