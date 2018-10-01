@@ -1,0 +1,37 @@
+<nav class="navbar sub-nav is-white">
+	<div class="container">
+		<div class="navbar-menu">
+			<div class="navbar-start">
+				<a href="#" class="navbar-item">
+					Recent
+				</a>
+
+				<a href="#" class="navbar-item">
+					Unanswered
+				</a>
+
+				@loggedIn
+
+					<a href="#" class="navbar-item">
+						Your posts
+					</a>
+
+				@endloggedIn
+
+			</div>
+
+			<div class="navbar-end">
+				<div class="navbar-item">
+					<form action="" method="GET">
+						<input 
+							type="text"
+							name="q"
+							class="input" 
+							placeholder="Search the forum" 
+						>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</nav>
