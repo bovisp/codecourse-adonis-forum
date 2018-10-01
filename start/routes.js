@@ -6,6 +6,12 @@ Route.on('/')
 	.render('welcome')
 	.as('home')
 
+Route.get('/posts/create', 'PostController.create')
+	.as('posts.create')
+
+Route.post('/posts', 'PostController.store')
+	.as('posts.store')
+
 Route.get('/auth/register', 'Auth/RegisterController.index')
 	.as('auth.register')
 
