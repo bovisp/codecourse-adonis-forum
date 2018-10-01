@@ -6,17 +6,22 @@
 
 	{{ style('css/app') }}
 </head>
-<body>
+<body>	
+
 	@include('layouts.partials._nav')
 
 	<section class="container">
 		<div class="columns">
 			<div class="column is-3">
-				sidebar
+				
+				@include('layouts.partials._sidebar')
+
 			</div>
 
 			<div class="column is-9">
+
 				@!section('content')
+
 			</div>
 		</div>
 	</section>

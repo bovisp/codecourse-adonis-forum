@@ -1,0 +1,25 @@
+<a 
+	href="#"
+	class="button is-info is-primary is-block is-medium" 
+>New post</a>
+
+<br>
+
+<aside class="menu">
+	<p class="menu-label">
+		Tags
+	</p>
+
+	<ul class="menu-list">
+
+		@each(tag in tags.toJSON())
+
+			<li>
+				<a href="" class="is-info">
+					{{ tag.name }}
+				</a>
+			</li>
+
+		@endeach
+	</ul>
+</aside>
