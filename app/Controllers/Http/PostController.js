@@ -38,7 +38,7 @@ class PostController {
 
 		await post.save()
 
-		return response.route('home')
+		return response.redirect('/')
 	}
 }
 

@@ -8,6 +8,14 @@ class Post extends Model {
 
 		this.addTrait('Slugify')
 	}
+
+	tag () {
+		return this.belongsTo('App/Models/Tag')
+	}
+
+	user () {
+		return this.belongsTo('App/Models/User')
+	}
 }
 
 module.exports = Post

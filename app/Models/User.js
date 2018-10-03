@@ -1,5 +1,7 @@
 'use strict'
 
+const md5 = require('md5')
+
 /** @type {import('@adonisjs/framework/src/Hash')} */
 const Hash = use('Hash')
 
@@ -21,6 +23,12 @@ class User extends Model {
     })
   }
 
+  static get computed () {
+    return [
+      'avatar'
+    ]
+  }
+
   /**
    * A relationship on tokens is required for auth to
    * work. Since features like `refreshTokens` or
@@ -33,6 +41,10 @@ class User extends Model {
    */
   tokens () {
     return this.hasMany('App/Models/Token')
+  }
+
+  getAvatar ({ email }) {
+    return `https://www.gravatar.com/avatar/${md5(email)}?s=100&d=mm`
   }
 }
 

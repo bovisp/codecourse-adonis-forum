@@ -1,0 +1,29 @@
+@layout('layouts.default')
+
+@section('content')
+
+	<div class="box">
+		<div class="section">
+			
+			@if(posts.toJSON().length)
+
+				@each(post in posts.toJSON())
+
+					@include('forum.partials._post')
+
+				@endeach
+
+			@else
+
+				<article class="message is-info">
+					<div class="message-body">
+						There are posts to display
+					</div>
+				</article>
+
+			@endif
+
+		</div>
+	</div>
+
+@endsection

@@ -2,7 +2,7 @@
 
 /*
 |--------------------------------------------------------------------------
-| TagSeeder
+| PostSeeder
 |--------------------------------------------------------------------------
 |
 | Make use of the Factory instance to seed database with dummy data or
@@ -12,12 +12,10 @@
 
 const Factory = use('Factory')
 
-const Tag = use('App/Models/Tag')
-
-class TagSeeder {
-  async run () {
-  	await Factory.model('App/Models/Tag').createMany(5)
-  }
+class PostSeeder {
+	async run () {
+		await Factory.model('App/Models/Post').createMany(30)
+	}
 }
 
-module.exports = TagSeeder
+module.exports = PostSeeder

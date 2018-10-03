@@ -2,8 +2,7 @@
 
 const Route = use('Route')
 
-Route.on('/')
-	.render('welcome')
+Route.get('/', 'HomeController.index')
 	.as('home')
 
 Route.get('/posts/create', 'PostController.create')
@@ -12,11 +11,11 @@ Route.get('/posts/create', 'PostController.create')
 
 Route.post('/posts', 'PostController.store')
 	.as('posts.store')
-	.middleware(['guest'])
+	.middleware(['auth'])
 
 Route.get('/auth/register', 'Auth/RegisterController.index')
 	.as('auth.register')
-	.middleware(['guest'])
+	.middleware(['auth'])
 
 Route.post('/auth/register', 'Auth/RegisterController.store')
 	.as('auth.register')

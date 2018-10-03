@@ -1,0 +1,26 @@
+<div class="media">
+	<div class="media-left">
+		<p class="image is-48x48">
+			<img src="{{ post.user.avatar }}" alt="{{ post.username }}">
+		</p>
+	</div>
+
+	<media-content>
+		<div class="level">
+			<div class="level-left">
+				<div class="level-item">
+					<a href="">{{ post.title }}</a>
+				</div>
+
+				<div class="level-item">
+					<span class="tag">{{ post.tag.name }}</span>
+				</div>
+			</div>
+		</div>
+
+		<p>
+			<strong>{{ post.user.username }}</strong> 
+			posted {{ post.created_at }}
+		</p>
+	</media-content>
+</div>
