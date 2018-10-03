@@ -26,8 +26,68 @@
 
 						<small>{{ post.created_at }}</small>
 					</div>
+
+					@each(reply in post.replies)
+
+						<article class="media">
+							<div class="media-left">
+								<p class="image is-48x48">
+									<img src="{{ reply.user.avatar }}" alt="{{ reply.user.username }}">
+								</p>
+							</div>
+
+							<div class="media-content">
+								<div class="content">
+									<strong>{{ reply.user.username }}</strong>
+
+									<p>{{ reply.body }}</p>
+
+									<small>{{ reply.created_at }}</small>
+								</div>
+							</div>
+						</article>
+
+					@endeach
+
 				</div>
 			</article>
+
+			<div class="section">
+				
+				@loggedIn
+
+					<form action="{{ route('posts.reply.store', { slug: post.slug }) }}" method="POST">
+						{{ csrfField() }}
+
+						<div class="field">
+							<div class="control">
+								<label for="body" class="label">Reply</label>
+
+								<textarea 
+									name="body"
+									id="body" 
+									class="textarea{{ hasErrorFor('body') ? ' is-danger' : '' }}"
+									>{{ old('body', '') }}</textarea>
+
+								@if(hasErrorFor('body'))
+									<p
+										class="help is-danger"
+									>{{ getErrorFor('body') }}</p>
+								@endif
+							</div>
+						</div>
+
+						<button class="button is-info" type="submit">Reply</button>
+					</form>
+
+				@else
+
+					<div class="notification is-info">
+						Please <a href="{{ route('atth.login') }}">log in</a> to reply to this post!
+					</div>
+
+				@endloggedIn
+			</div>
 		</div>
 	</div>
 @endsection

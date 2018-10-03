@@ -8,6 +8,10 @@ Route.get('/', 'HomeController.index')
 Route.get('/posts/:slug', 'PostController.show')
 	.as('posts.show')
 
+Route.post('/posts/:slug/replies', 'PostReplyController.store')
+	.as('posts.reply.store')
+	.middleware(['auth'])
+
 Route.get('/posts/create', 'PostController.create')
 	.as('posts.create')
 	.middleware(['auth'])
