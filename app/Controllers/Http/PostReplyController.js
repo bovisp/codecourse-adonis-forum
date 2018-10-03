@@ -1,8 +1,8 @@
 'use strict'
 
 const { validateAll } = use('Validator')
-
 const Post = use('App/Models/Post')
+const moment = require('moment')
 
 class PostReplyController {
 	async store ({ request, response, session, auth, params }) {
@@ -33,7 +33,10 @@ class PostReplyController {
 			user_id: auth.user.id
 		})
 
+		post.last_reply_at = moment()
+
 		await reply.save()
+		await post.save()
 
 		return response.redirect('back')
 	}

@@ -1,7 +1,7 @@
 'use strict'
 
 const { validateAll } = use('Validator')
-
+const moment = require('moment')
 const Post = use('App/Models/Post')
 
 class PostController {
@@ -47,7 +47,8 @@ class PostController {
 			title,
 			body,
 			tag_id: tag,
-			user_id: auth.user.id
+			user_id: auth.user.id,
+			last_reply_at: moment()
 		})
 
 		await post.save()

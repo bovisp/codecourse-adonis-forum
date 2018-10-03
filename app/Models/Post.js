@@ -9,6 +9,10 @@ class Post extends Model {
 		this.addTrait('Slugify')
 	}
 
+	static get dates () {
+		return super.dates.concat(['last_reply_at'])
+	}
+
 	tag () {
 		return this.belongsTo('App/Models/Tag')
 	}
