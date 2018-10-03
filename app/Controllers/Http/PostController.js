@@ -9,6 +9,18 @@ class PostController {
 		return view.render('posts.create')
 	}
 
+	async show ({ view, params }) {
+		let post = await Post.query()
+			.with('user')
+			.with('tag')
+			.where('slug', '=', params.slug)
+			.firstOrFail()
+
+		return view.render('posts.show', {
+			post: post.toJSON()
+		})
+	}
+
 	async store ({ request, response, session, auth }) {
 		const { title, tag, body } = request.all()
 

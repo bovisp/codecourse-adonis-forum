@@ -1,0 +1,33 @@
+@layout('layouts.default')
+
+@section('content')
+	<div class="box">
+		<div class="section">
+			<h4 class="subtitle is-4">
+				{{ post.title }}
+
+				<span class="tag">
+					{{ post.tag.name }}
+				</span>
+			</h4>
+
+			<article class="media">
+				<div class="media-left">
+					<p class="image is-48x48">
+						<img src="{{ post.user.avatar }}" alt="{{ post.user.username }}">
+					</p>
+				</div>
+
+				<div class="media-content">
+					<div class="content">
+						<strong>{{ post.user.username }}</strong>
+
+						<p>{{ post.body }}</p>
+
+						<small>{{ post.created_at }}</small>
+					</div>
+				</div>
+			</article>
+		</div>
+	</div>
+@endsection

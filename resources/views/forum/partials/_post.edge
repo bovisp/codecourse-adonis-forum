@@ -9,7 +9,7 @@
 		<div class="level">
 			<div class="level-left">
 				<div class="level-item">
-					<a href="">{{ post.title }}</a>
+					<a href="{{ route('posts.show', { slug: post.slug }) }}">{{ post.title }}</a>
 				</div>
 
 				<div class="level-item">
