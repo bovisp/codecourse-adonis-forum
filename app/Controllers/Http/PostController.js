@@ -13,8 +13,11 @@ class PostController {
 		let post = await Post.query()
 			.with('user')
 			.with('tag')
+			.with('replies')
 			.where('slug', '=', params.slug)
 			.firstOrFail()
+
+		console.log(post.toJSON())
 
 		return view.render('posts.show', {
 			post: post.toJSON()
