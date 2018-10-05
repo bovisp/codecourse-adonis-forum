@@ -1,4 +1,5 @@
 const { hooks } = require('@adonisjs/ignitor')
+const pluralize = require('pluralize')
 
 hooks.after.providersBooted(() => {
 	const View = use('View')
@@ -8,6 +9,10 @@ hooks.after.providersBooted(() => {
 	Tag.all().then(tags => {
 		View.global('tags', tags)
 	}).catch(() => {})
+
+	View.global('pluralize', (singular, length) => {
+		return pluralize(singular, length)
+	})
 
 	const Validator = use('Validator')
 	const Database = use('Database')

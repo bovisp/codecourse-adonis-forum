@@ -5,7 +5,7 @@
 		</p>
 	</div>
 
-	<media-content>
+	<div class="media-content">
 		<div class="level">
 			<div class="level-left">
 				<div class="level-item">
@@ -33,5 +33,11 @@
 			@endif
 			
 		</p>
-	</media-content>
+	</div>
+
+	<div class="media-right">
+		<div class="has-text-grey-light">
+			{{ post.replies.length }} {{ pluralize('reply', post.replies.length) }}
+		</div>
+	</div>
 </div>

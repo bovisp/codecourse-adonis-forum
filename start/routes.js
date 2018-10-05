@@ -22,7 +22,7 @@ Route.get('/posts/:slug', 'PostController.show')
 
 Route.get('/auth/register', 'Auth/RegisterController.index')
 	.as('auth.register')
-	.middleware(['auth'])
+	.middleware(['guest'])
 
 Route.post('/auth/register', 'Auth/RegisterController.store')
 	.as('auth.register')

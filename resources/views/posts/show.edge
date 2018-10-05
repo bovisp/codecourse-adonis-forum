@@ -50,6 +50,12 @@
 					@endeach
 
 				</div>
+
+				<div class="media-right">
+					<div class="has-text-grey-light">
+						{{ post.replies.length }} {{ pluralize('reply', post.replies.length) }}
+					</div>
+				</div>
 			</article>
 
 			<div class="section">
