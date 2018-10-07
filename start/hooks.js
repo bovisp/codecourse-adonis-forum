@@ -14,6 +14,14 @@ hooks.after.providersBooted(() => {
 		return pluralize(singular, length)
 	})
 
+	View.global('paginationArray', length => {
+		return Array.from(new Array(length), (value, index) => {
+			return index + 1
+		})
+	})
+
+	View.global('parseInt', number => parseInt(number))
+
 	const Validator = use('Validator')
 	const Database = use('Database')
 

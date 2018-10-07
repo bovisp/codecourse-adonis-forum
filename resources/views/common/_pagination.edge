@@ -1,0 +1,49 @@
+<div class="section">
+	<nav class="pagination" role="navigation">
+		@if(pagination.page <= 1)
+
+			<button 
+				class="pagination-previous"
+				disabled
+			>Previous</button>
+
+		@else
+	
+			<a 
+				href="?page={{ parseInt(pagination.page) - 1 }}" 
+				class="pagination-previous"
+			>Previous</a>
+
+		@endif
+
+		@if(pagination.page >= pagination.lastPage)
+
+			<button 
+				class="pagination-next"
+				disabled
+			>Next</button>
+
+		@else
+
+			<a 
+				href="?page={{ parseInt(pagination.page) + 1 }}" 
+				class="pagination-next"
+			>Next</a>
+
+		@endif
+
+		<ul class="pagination-list">
+
+			@each(page in paginationArray(pagination.lastPage))
+
+				<li>
+					<a 
+						href="?page={{ page }}" 
+						class="pagination-link{{ pagination.page == page ? ' is-current' : '' }}"
+					>{{ page }}</a>
+				</li>
+
+			@endeach
+		</ul>
+	</nav>
+</div>
