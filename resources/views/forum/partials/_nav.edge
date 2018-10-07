@@ -25,12 +25,13 @@
 
 			<div class="navbar-end">
 				<div class="navbar-item">
-					<form action="" method="GET">
+					<form action="{{ route('search') }}" method="GET">
 						<input 
 							type="text"
 							name="q"
 							class="input" 
 							placeholder="Search the forum" 
+							value={{ request.input('q', '') }}
 						>
 					</form>
 				</div>
