@@ -5,6 +5,14 @@ const Route = use('Route')
 Route.get('/', 'HomeController.index')
 	.as('home')
 
+Route.post('/posts/:slug/answer', 'BestAnswerController.store')
+	.as('posts.answer.store')
+	.middleware(['auth'])
+
+Route.delete('/posts/:slug/answer', 'BestAnswerController.destroy')
+	.as('posts.answer.destroy')
+	.middleware(['auth'])
+
 Route.post('/posts/:slug/replies', 'PostReplyController.store')
 	.as('posts.reply.store')
 	.middleware(['auth'])
