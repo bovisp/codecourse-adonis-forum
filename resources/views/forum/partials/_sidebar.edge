@@ -15,9 +15,10 @@
 		@each(tag in tags.toJSON())
 
 			<li>
-				<a href="" class="is-info">
-					{{ tag.name }}
-				</a>
+				<a 
+					href="{{ route('posts.tags', { tag: tag.slug }) }}" 
+					class="is-info{{ request.match(['/posts/tags/' + tag.slug]) ? ' is-active' : '' }}"
+				>{{ tag.name }}</a>
 			</li>
 
 		@endeach
