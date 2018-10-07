@@ -13,6 +13,14 @@ class Post extends Model {
 		return super.dates.concat(['last_reply_at'])
 	}
 
+	static castDates (field, value) {
+		if (['created_at', 'updated_at'].includes(field)) {
+			return `${value.fromNow(true)} ago`
+		}
+
+		return super.formatDates(field, value)
+	}
+
 	tag () {
 		return this.belongsTo('App/Models/Tag')
 	}
