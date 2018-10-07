@@ -11836,3 +11836,7 @@ html {
   background: #F2F6FA;
 }
 
+.bt-0 {
+  border-top: none !important;
+}
+
