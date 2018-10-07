@@ -17,6 +17,9 @@ Route.post('/posts', 'PostController.store')
 	.as('posts.store')
 	.middleware(['auth'])
 
+Route.get('/posts/unanswered', 'UnansweredPostController.index')
+	.as('posts.unanswered')
+
 Route.get('/posts/:slug', 'PostController.show')
 	.as('posts.show')
 
