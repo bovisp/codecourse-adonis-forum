@@ -2,19 +2,22 @@
 	<div class="container">
 		<div class="navbar-menu">
 			<div class="navbar-start">
-				<a href="{{ route('home') }}" class="navbar-item">
-					Recent
-				</a>
+				<a 
+					href="{{ route('home') }}" 
+					class="navbar-item{{ request.match(['/']) ? ' is-active': '' }}"
+				>Recent</a>
 
-				<a href="{{ route('posts.unanswered') }}" class="navbar-item">
-					Unanswered
-				</a>
+				<a 
+					href="{{ route('posts.unanswered') }}" 
+					class="navbar-item{{ request.match(['/posts/unanswered']) ? ' is-active': '' }}"
+				>Unanswered</a>
 
 				@loggedIn
 
-					<a href="{{ route('posts.own') }}" class="navbar-item">
-						Your posts
-					</a>
+					<a 
+						href="{{ route('posts.own') }}" 
+						class="navbar-item{{ request.match(['/posts/own']) ? ' is-active': '' }}"
+					>Your posts</a>
 
 				@endloggedIn
 
