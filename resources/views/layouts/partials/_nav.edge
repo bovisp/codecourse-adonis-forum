@@ -12,11 +12,12 @@
 				@loggedIn
 
 					<div class="navbar-item">
-						<form action="" method="POST">
+						<form action="{{ route('auth.logout') }}" method="POST">
+							{{ csrfField() }}
+							
 							<button 
 								class="button is-white"
 								type="submit"
-								href="{{ route('auth.login') }}" 
 							>Logout</button>
 						</form>
 					</div>
