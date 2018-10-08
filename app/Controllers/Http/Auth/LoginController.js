@@ -28,6 +28,14 @@ class LoginController {
 
 		await auth.attempt(email, password)
 
+		if (session.get('_intended', false)) {
+			let redirect = response.redirect(session.get('_intended'))
+			
+			session.forget('_intended')
+
+			return redirect
+		}
+
 		return response.redirect('home')
 	}
 }
